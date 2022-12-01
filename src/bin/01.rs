@@ -1,9 +1,13 @@
 pub fn part_one(input: &str) -> Option<u32> {
-    input
+    let kek = input
         .split("\n\n")
         .map(|elf| elf.split('\n').map(|num| num.parse::<u32>().unwrap_or(0)))
         .map(|line| line.sum())
-        .max()
+        .max();
+    
+    println!("{:?}", kek);
+
+    kek
 }
 
 pub fn part_two(input: &str) -> Option<u32> {
@@ -31,12 +35,12 @@ mod tests {
     #[test]
     fn test_part_one() {
         let input = advent_of_code::read_file("examples", 1);
-        assert_eq!(part_one(&input), None);
+        assert_eq!(part_one(&input), Some(24000));
     }
 
     #[test]
     fn test_part_two() {
         let input = advent_of_code::read_file("examples", 1);
-        assert_eq!(part_two(&input), None);
+        assert_eq!(part_two(&input), Some(45000));
     }
 }
