@@ -1,9 +1,17 @@
 pub fn part_one(input: &str) -> Option<u32> {
-    input.split("\n\n").map(|elf| elf.split('\n').map(|num| num.parse::<u32>().unwrap_or(0))).map(|line| line.sum()).max()
+    input
+        .split("\n\n")
+        .map(|elf| elf.split('\n').map(|num| num.parse::<u32>().unwrap_or(0)))
+        .map(|line| line.sum())
+        .max()
 }
 
 pub fn part_two(input: &str) -> Option<u32> {
-    let mut arr: Vec<u32> = input.split("\n\n").map(|elf| elf.split('\n').map(|num| num.parse().unwrap_or(0))).map(|line| line.sum()).collect();
+    let mut arr: Vec<u32> = input
+        .split("\n\n")
+        .map(|elf| elf.split('\n').map(|num| num.parse().unwrap_or(0)))
+        .map(|line| line.sum())
+        .collect();
 
     arr.sort();
 
