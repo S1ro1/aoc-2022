@@ -1,13 +1,9 @@
 pub fn part_one(input: &str) -> Option<u32> {
-    let kek = input
+    input
         .split("\n\n")
         .map(|elf| elf.split('\n').map(|num| num.parse::<u32>().unwrap_or(0)))
-        .map(|line| line.sum())
-        .max();
-    
-    println!("{:?}", kek);
-
-    kek
+        .map(|line| line.sum::<u32>())
+        .max()
 }
 
 pub fn part_two(input: &str) -> Option<u32> {
