@@ -3,31 +3,43 @@ use std::ops::Deref;
 use itertools::Itertools;
 
 pub fn part_one(input: &str) -> Option<u32> {
-    Some(input.lines().map(
-        |line| {
-            let mut line_nums = line.split([',', '-']).map(|num| num.parse::<u32>().unwrap());
-            let first = line_nums.next().unwrap();
-            let second = line_nums.next().unwrap();
-            let third = line_nums.next().unwrap();
-            let fourth = line_nums.next().unwrap();
+    Some(
+        input
+            .lines()
+            .map(|line| {
+                let mut line_nums = line
+                    .split([',', '-'])
+                    .map(|num| num.parse::<u32>().unwrap());
+                let first = line_nums.next().unwrap();
+                let second = line_nums.next().unwrap();
+                let third = line_nums.next().unwrap();
+                let fourth = line_nums.next().unwrap();
 
-            ((first >= third && second <= fourth) || (third >= first && fourth <= second)) as u32
-        }
-    ).sum::<u32>())
+                ((first >= third && second <= fourth) || (third >= first && fourth <= second))
+                    as u32
+            })
+            .sum::<u32>(),
+    )
 }
 
 pub fn part_two(input: &str) -> Option<u32> {
-    Some(input.lines().map(
-        |line| {
-            let mut line_nums = line.split([',', '-']).map(|num| num.parse::<u32>().unwrap());
-            let first = line_nums.next().unwrap();
-            let second = line_nums.next().unwrap();
-            let third = line_nums.next().unwrap();
-            let fourth = line_nums.next().unwrap();
+    Some(
+        input
+            .lines()
+            .map(|line| {
+                let mut line_nums = line
+                    .split([',', '-'])
+                    .map(|num| num.parse::<u32>().unwrap());
+                let first = line_nums.next().unwrap();
+                let second = line_nums.next().unwrap();
+                let third = line_nums.next().unwrap();
+                let fourth = line_nums.next().unwrap();
 
-            (((first <= third) && (second >= third)) || ((first >= third) && (fourth >= first))) as u32
-        }
-    ).sum::<u32>())
+                (((first <= third) && (second >= third)) || ((first >= third) && (fourth >= first)))
+                    as u32
+            })
+            .sum::<u32>(),
+    )
 }
 
 fn main() {
