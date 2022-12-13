@@ -95,7 +95,7 @@ pub fn part_one(input: &str) -> Option<u128> {
     for _ in 0..20 {
         for monkey_index in 0..monkeys.len() {
             loop {
-                let mut result = 0;
+                let result;
                 let mut monkey = monkeys[monkey_index].clone();
                 let item = monkey.items.pop_front();
                 match item {
